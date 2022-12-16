@@ -1,0 +1,6 @@
+framework module Pods_ThirdwayvTask_ThirdwayvTaskUITests {
+  umbrella header "Pods-ThirdwayvTask-ThirdwayvTaskUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
