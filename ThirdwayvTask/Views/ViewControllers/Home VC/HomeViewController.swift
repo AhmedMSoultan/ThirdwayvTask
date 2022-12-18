@@ -20,6 +20,8 @@ class HomeViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     let reachability = try! Reachability()
     
+    let layout = homeLayout()
+    
     // MARK: - LIFE-CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,6 @@ class HomeViewController: UIViewController {
 // MARK: - SETUP
 extension HomeViewController {
     private func initVC() {
-        let layout = homeLayout()
         layout.delegate = self
         layout.numberOfColumns = 2
         productsCollectionView.collectionViewLayout = layout
@@ -141,6 +142,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == (products?.count ?? 0) / 2 {
+            layout.cache.removeAll()
             homeVM.requestNewData()
         }
     }

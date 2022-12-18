@@ -16,7 +16,7 @@ class homeLayout: UICollectionViewLayout {
     var delegate: HomeLayoutDelegate!
     var numberOfColumns = 1
 
-    private var cache = [UICollectionViewLayoutAttributes]()
+    var cache = [UICollectionViewLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {
         get {
